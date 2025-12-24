@@ -1,0 +1,41 @@
+# BUG-003 — Stepper: labels dos itens estão incorretas (deveriam ser Item 1 a Item 9)
+
+## Tipo
+UI / Conformidade com Protótipo
+
+## Severidade
+Média
+
+## Ambiente
+- SO: Windows 10/11
+- Microsoft Edge: Versão 143.0.3650.96 (64 bits)
+- Google Chrome: Versão 143.0.7499.170 (64 bits)
+
+## Passos para reproduzir
+1. Acessar uma tela onde o stepper (itens no topo) esteja visível.
+2. Observar o texto abaixo de cada ícone do stepper.
+
+## Resultado atual (Aplicação)
+- As labels dos itens do stepper estão incorretas.
+- Em vez de exibir a sequência Item 1, Item 2, Item 3, Item 4, Item 5, Item 6, Item 7, Item 8, Item 9, a aplicação repete "ITEM 1" em todos os itens.
+- Em todos os casos, o texto aparece em caixa alta (ex.: "ITEM 1"), divergindo do padrão do protótipo.
+
+## Resultado esperado (Protótipo)
+- O stepper deve exibir corretamente:
+  - **Item 1, Item 2, Item 3, Item 4, Item 5, Item 6, Item 7, Item 8, Item 9**
+- Padrão de escrita conforme protótipo:
+  - **"Item X"** com apenas a primeira letra maiúscula (não usar **"ITEM X"**).
+
+## Evidências
+**Protótipo (Figma):**  
+![Protótipo - Stepper labels](box_stepper_prototipo.png)
+
+**Aplicação (Atual):**  
+![Aplicação - Stepper labels](box_stepper_aplicacao.png)
+
+## Impacto
+- O usuário perde clareza sobre em qual etapa está e quais etapas existem, prejudicando a navegação e o entendimento do fluxo.
+
+## Sugestão de correção (opcional)
+- Ajustar a origem dos labels para refletir a etapa correta (1 a 9), evitando valor fixo repetido.
+- Garantir a formatação do texto conforme protótipo (ex.: "Item 1" em vez de "ITEM 1").

@@ -1,0 +1,48 @@
+# BUG-004 — Stepper: rótulo "Concluído" não segue padrão do protótipo ao marcar "Etapa concluída = Sim"
+
+## Tipo
+UI / Conformidade com Protótipo
+
+## Severidade
+Média
+
+## Ambiente
+- SO: Windows 10/11
+- Microsoft Edge: Versão 143.0.3650.96 (64 bits)
+- Google Chrome: Versão 143.0.7499.170 (64 bits)
+
+## Pré-condição
+- Definir "A etapa está concluída?" como Sim.
+
+## Passos para reproduzir
+1. Acessar a tela com o stepper (itens 1–9).
+2. Marcar "A etapa está concluída?" como Sim.
+3. Observar o rótulo exibido abaixo do item concluído no stepper.
+
+## Resultado atual (Aplicação)
+- O rótulo de conclusão é exibido, porém não segue o padrão do protótipo (ex.: caixa alta, acentuação/capitalização e estilo visual divergentes).
+
+## Resultado esperado (Protótipo)
+- Quando "Etapa concluída" = Sim, o item concluído no stepper deve:
+  - exibir o rótulo "Concluído" abaixo do item;
+  - texto em preto;
+  - com acentuação correta e apenas a primeira letra maiúscula;
+  - manter o padrão de fonte definido no protótipo (ex.: Segoe UI).
+
+## Evidências
+### Vídeo
+- [Execução na aplicação (padronizacao_dos_itens.mp4)](padronizacao_dos_itens.mp4)
+
+**Protótipo (Figma):**  
+![Protótipo](prototipo_stepper_concluido.png)
+
+**Aplicação (Atual):**  
+![Aplicação](aplicacao_stepper_concluido.png)
+
+## Dependência / Relacionado
+- Relacionado ao **BUG-001** (padrão global de fonte/cor).
+- Relacionado ao **BUG-002** (toggle "Etapa concluída" influencia componentes da tela).
+- Relacionado ao **BUG-003** (labels dos itens: Item 1 a Item 9 + padrão de escrita).
+
+## Sugestão de correção
+- Padronizar o estilo do rótulo "Concluído" (cor preta, fonte padrão do projeto e capitalização/acentuação corretas).

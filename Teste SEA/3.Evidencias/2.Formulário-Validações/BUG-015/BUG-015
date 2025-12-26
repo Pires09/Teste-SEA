@@ -1,0 +1,59 @@
+# BUG-015 — Formulário "Adicionar Funcionário": validações de Nome e CPF permitem dados inválidos (Nome com números / CPF com letras)
+
+## Tipo
+Funcionalidade / Validação de formulário
+
+## Severidade
+Alta
+
+## Ambiente
+- SO: Windows 10/11
+- Microsoft Edge: Versão 143.0.3650.96 (64 bits)
+- Google Chrome: Versão 143.0.7499.170 (64 bits)
+
+## Passos para reproduzir
+1. Acessar a aba "Funcionário(s)".
+2. Clicar em "+ Adicionar Funcionário".
+3. Preencher o campo Nome com números.
+4. Preencher o campo CPF com letras.
+5. Clicar em Salvar.
+6. Observar a listagem de funcionários e os badges exibidos no card.
+
+## Resultado atual (Aplicação)
+- O campo Nome aceita letras e números.
+- O campo CPF aceita letras e números.
+- O registro é salvo com dados inválidos e passa a aparecer na listagem sem qualquer mensagem de erro.
+
+## Resultado esperado
+- O campo Nome não deve aceitar números (apenas letras e caracteres válidos, como espaço e acentos).  
+  - Ao inserir números, o sistema deve bloquear o "Salvar" e exibir mensagem de validação.
+- O campo CPF deve aceitar apenas números (preferencialmente com máscara `###.###.###-##`) e validar:
+  - tamanho (11 dígitos);
+  - formato;
+  - consistência do CPF (dígitos verificadores).
+  - Ao inserir CPF inválido, o sistema deve bloquear o "Salvar" e exibir mensagem.
+- Em ambos os casos, não deve salvar o registro que não se enquadra nos requisitos.
+
+## Impacto
+- Permite salvar dados inválidos, comprometendo a integridade do cadastro e a confiabilidade das informações exibidas na lista.
+- Pode gerar inconsistência em relatórios/consultas.
+
+## Evidências
+**Formulário (Nome com números e CPF com letras):**  
+![Formulário - entradas inválidas](aplicacao_formulario_BUG-015.png)
+
+**Listagem (registro inválido persistido e exibido no card):**  
+![Lista - registro inválido exibido](aplicacao_lista_BUG-015.png)
+
+### Vídeo (Aplicação)
+- [Validação Nome/CPF (aplicação)](validacao_nome_cpf_aplicacao.mp4)
+
+## Sugestão de correção
+- Implementar validação no campo **Nome**:
+  - restringir entrada para apenas letras e caracteres válidos, como espaço e acentos;
+  - exibir feedback e impedir submit quando inválido.
+
+- Implementar validação no campo **CPF**:
+  - máscara e restrição de caracteres, apenas dígitos;
+  - validação de CPF (dígitos verificadores);
+  - exibir feedback e impedir submit quando inválido.

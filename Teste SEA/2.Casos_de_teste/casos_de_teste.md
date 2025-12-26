@@ -4,7 +4,6 @@
 **Autor:** Gabriel Pires  
 **Navegadores testados:** Chrome / Edge  
 
-> Padrão: iniciar o passo a passo com **"1. Acessar a aba 'Funcionário(s)'"**.  
 > Legenda de Status: **PASS** (passou) | **FAIL** (falhou) | **N/E** (não executado)
 
 ---

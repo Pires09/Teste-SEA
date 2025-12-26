@@ -53,7 +53,6 @@ describe("SEA - Desafio QA (E2E)", () => {
     preencherPorLabel("CPF", cpf);
     preencherPorLabel("RG", "1234567");
 
-    // Garante que CPF não ficou vazio (evita o "Preencha este campo")
     cy.contains("CPF")
       .closest("div")
       .find("input")
@@ -61,7 +60,6 @@ describe("SEA - Desafio QA (E2E)", () => {
       .invoke("val")
       .should("not.be.empty");
 
-    // Data (type="date" => YYYY-MM-DD)
     cy.contains("Data de nascimento")
       .closest("div")
       .find("input")
@@ -71,7 +69,6 @@ describe("SEA - Desafio QA (E2E)", () => {
 
     cy.contains("Masculino").click({ force: true });
 
-    // CA é obrigatório — preencher com 4 dígitos
     cy.contains("Informe o número do CA")
       .closest("div")
       .find("input")
@@ -84,7 +81,6 @@ describe("SEA - Desafio QA (E2E)", () => {
     cy.wait(10000);
     cy.reload();
 
-    // Em vez de procurar "Funcionário(s)", valide pela listagem voltando
     cy.contains("+ Adicionar Funcionário", { timeout: 10000 }).should("be.visible");
     cy.contains(nome, { timeout: 10000 }).should("be.visible");
   });

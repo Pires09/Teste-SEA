@@ -18,7 +18,7 @@
 **Resultado esperado:** Tela do módulo Funcionário(s) abre corretamente, sem erros visuais críticos.  
 **Resultado obtido:** Módulo acessou e carregou corretamente (listagem e botão “+ Adicionar Funcionário” visíveis).  
 **Status:** PASS  
-**Evidência:** `3.Evidencias/5.Automatização/print_cypress.png`
+**Evidência:** `3.Evidencias/5.Automatização`
 
 ---
 
@@ -152,7 +152,7 @@
 **Resultado esperado:** Cadastro permitido e salvo com sucesso.  
 **Resultado obtido:** Cadastro permitido (CPF válido aceito) e registro salvo com sucesso.  
 **Status:** PASS  
-**Evidência:** `3.Evidencias/5.Automatização/print_cypress.png`
+**Evidência:** `3.Evidencias/5.Automatização`
 
 ---
 

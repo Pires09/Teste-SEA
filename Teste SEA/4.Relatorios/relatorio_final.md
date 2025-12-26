@@ -116,7 +116,7 @@ Foram automatizados 2 fluxos E2E:
 - `cypress.config.js` (baseUrl = `http://analista-teste.seatecnologia.com.br`)
 
 **Evidência**
-- `3.Evidencias/5.Automatização/print_cypress.png`
+- `3.Evidencias/5.Automatização`
 
 ### Como executar
 - `npx cypress open` (modo interativo)

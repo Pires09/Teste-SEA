@@ -29,6 +29,12 @@ describe("SEA - Desafio QA (E2E)", () => {
   beforeEach(() => {
     cy.visit("/");
   });
+  afterEach(function () {
+  if (this.currentTest.state === "passed") {
+    const titulo = this.currentTest.title.replace(/[^\w\d-]+/g, "_");
+    cy.screenshot(`PASS__${titulo}`, { capture: "viewport" });
+  }
+  });
 
   it("Funcionalidade 1: Navegar até Funcionário(s)", () => {
     cy.contains("Funcionário(s)").click();
@@ -74,6 +80,9 @@ describe("SEA - Desafio QA (E2E)", () => {
       .type("1234", { force: true });
 
     cy.contains("Salvar").scrollIntoView().click();
+
+    cy.wait(10000);
+    cy.reload();
 
     // Em vez de procurar "Funcionário(s)", valide pela listagem voltando
     cy.contains("+ Adicionar Funcionário", { timeout: 10000 }).should("be.visible");
